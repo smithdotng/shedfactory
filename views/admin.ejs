@@ -1,0 +1,279 @@
+<%
+  const title = "Admin Dashboard";
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> | Shedfactory</title>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/sominx.css" />
+    <link rel="stylesheet" href="/assets/css/sominx-responsive.css" />
+
+    <!-- Admin custom styles -->
+    <style>
+        body {
+            background-color: #f4f7fc;
+            font-family: 'Jost', sans-serif;
+        }
+        .admin-wrapper {
+            padding: 40px 0;
+        }
+        .admin-header {
+            background: #1e1e1e;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #fe1f07;
+        }
+        .admin-header .logo img {
+            height: 50px;
+            width: auto;
+        }
+        .admin-header .logout {
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        .admin-header .logout:hover {
+            color: #fe1f07;
+            text-decoration: none;
+        }
+        .dashboard-title {
+            margin-bottom: 30px;
+        }
+        .dashboard-title h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e1e1e;
+        }
+        .dashboard-title p {
+            color: #6c6c6c;
+            font-size: 18px;
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        .card-header {
+            background: #fff;
+            border-bottom: 2px solid #f0f0f0;
+            padding: 20px 25px;
+            font-weight: 600;
+            font-size: 20px;
+            color: #1e1e1e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-header i {
+            color: #fe1f07;
+            margin-right: 10px;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .table {
+            margin-bottom: 0;
+        }
+        .table thead th {
+            border-top: none;
+            border-bottom: 2px solid #fe1f07;
+            font-weight: 600;
+            color: #1e1e1e;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .table tbody tr:hover {
+            background-color: #fafafa;
+        }
+        .badge-subscribed {
+            background: #28a745;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .btn-delete {
+            background: none;
+            border: none;
+            color: #fe1f07;
+            cursor: pointer;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+        .btn-delete:hover {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+        .btn-delete i {
+            margin-right: 5px;
+        }
+        .empty-message {
+            padding: 40px;
+            text-align: center;
+            color: #6c6c6c;
+            font-size: 16px;
+        }
+        .footer-note {
+            text-align: center;
+            padding: 20px 0;
+            color: #6c6c6c;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 40px;
+        }
+        .footer-note a {
+            color: #fe1f07;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="/"><img src="/assets/images/resources/shedfactory_logo.png" alt="Shedfactory"></a>
+                </div>
+                <div>
+                    <a href="/" class="logout"><i class="fas fa-external-link-alt"></i> View Site</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-wrapper">
+        <div class="container">
+            <div class="dashboard-title text-center">
+                <h1>Admin Dashboard</h1>
+                <p>Manage newsletter subscribers and contact inquiries</p>
+            </div>
+
+            <!-- Subscribers Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span><i class="fas fa-envelope-open-text"></i> Newsletter Subscribers (<%= subscribers.length %>)</span>
+                    <a href="#" onclick="window.location.reload();" class="text-muted" title="Refresh"><i class="fas fa-sync-alt"></i></a>
+                </div>
+                <div class="card-body">
+                    <% if (subscribers.length === 0) { %>
+                        <div class="empty-message">
+                            <i class="fas fa-inbox fa-3x mb-3" style="color: #ccc;"></i>
+                            <p>No subscribers yet.</p>
+                        </div>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Email</th>
+                                        <th>Subscribed At</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% subscribers.forEach(sub => { %>
+                                        <tr>
+                                            <td><%= sub.id %></td>
+                                            <td><%= sub.email %></td>
+                                            <td><%= new Date(sub.subscribedAt).toLocaleString() %></td>
+                                            <td>
+                                                <form action="/admin/subscriber/delete/<%= sub.id %>" method="POST" onsubmit="return confirm('Delete this subscriber?');">
+                                                    <button type="submit" class="btn-delete"><i class="fas fa-trash-alt"></i> Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Contacts Card -->
+            <div class="card">
+                <div class="card-header">
+                    <span><i class="fas fa-comment-alt"></i> Contact Form Submissions (<%= contacts.length %>)</span>
+                </div>
+                <div class="card-body">
+                    <% if (contacts.length === 0) { %>
+                        <div class="empty-message">
+                            <i class="fas fa-inbox fa-3x mb-3" style="color: #ccc;"></i>
+                            <p>No contact messages yet.</p>
+                        </div>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Subject</th>
+                                        <th>Message</th>
+                                        <th>Submitted</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% contacts.forEach(contact => { %>
+                                        <tr>
+                                            <td><%= contact.id %></td>
+                                            <td><%= contact.name %></td>
+                                            <td><%= contact.email %></td>
+                                            <td><%= contact.phone || '—' %></td>
+                                            <td><%= contact.subject || '—' %></td>
+                                            <td><%= contact.message.substring(0, 50) %><%= contact.message.length > 50 ? '…' : '' %></td>
+                                            <td><%= new Date(contact.submittedAt).toLocaleString() %></td>
+                                            <td>
+                                                <form action="/admin/contact/delete/<%= contact.id %>" method="POST" onsubmit="return confirm('Delete this message?');">
+                                                    <button type="submit" class="btn-delete"><i class="fas fa-trash-alt"></i> Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Note -->
+    <div class="footer-note">
+        <div class="container">
+            <p>&copy; 2026 Shedfactory Digital Creative Agency. <a href="/">Back to main site</a></p>
+        </div>
+    </div>
+
+    <!-- Scripts (Bootstrap JS is optional but may be needed for some interactions) -->
+    <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

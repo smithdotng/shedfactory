@@ -1,0 +1,183 @@
+<%
+  const title = "Contact Us";
+  const description = "Ready to bring your dream to life? Get in touch with Shedfactory to start your project.";
+%>
+<%- include('partials/header', { title, description, currentPath }) %>
+
+<!-- Sticky Header -->
+<div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+</div>
+
+<!-- Page Header Start -->
+<section class="page-header" style="background-image: url(/assets/images/backgrounds/page-header-bg-contact.jpg);">
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><span>/</span></li>
+                <li>Contact</li>
+            </ul>
+            <h2>Get In Touch</h2>
+        </div>
+    </div>
+</section>
+<!-- Page Header End -->
+
+<!-- Contact Page Start -->
+<section class="contact-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4">
+                <div class="contact-page__left">
+                    <div class="section-title text-left">
+                        <span class="section-title__tagline">Start Your Dream Project</span>
+                        <h2 class="section-title__title">Let’s Bring Your Vision to Life</h2>
+                    </div>
+                    <p class="contact-page__text">Have a project in mind? We'd love to hear about it. Whether you're a startup with a bold idea or an established business ready for a digital transformation, our team is here to help.</p>
+                    <ul class="list-unstyled contact-page__points">
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="text">
+                                <p>UK & Nigeria offices</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="text">
+                                <p>10 years of creative excellence</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="text">
+                                <p>100+ dreams brought to life</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="contact-page__social">
+                        <a href="https://facebook.com/shedfactorydotco" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com/shedfactorydotco" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/shedfactory/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                <div class="contact-page__right">
+                    <!-- Display success or error messages if needed -->
+                    <% if (success === 'true') { %>
+                        <div class="alert alert-success">Thank you for your message. We'll get back to you soon!</div>
+                    <% } %>
+                    <% if (error === 'missing-fields') { %>
+                        <div class="alert alert-danger">Please fill in all required fields.</div>
+                    <% } %>
+                    <% if (error === 'server') { %>
+                        <div class="alert alert-danger">Something went wrong. Please try again later.</div>
+                    <% } %>
+
+                    <form action="/contact" method="POST" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="comment-form__input-box">
+                                    <input type="text" placeholder="Your name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="comment-form__input-box">
+                                    <input type="email" placeholder="Email address" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="comment-form__input-box">
+                                    <input type="text" placeholder="Phone number" name="phone">
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="comment-form__input-box">
+                                    <input type="text" placeholder="Subject" name="subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="comment-form__input-box">
+                                    <textarea name="message" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+                                </div>
+                                <button type="submit" class="thm-btn comment-form__btn">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Page End -->
+
+<!-- Information Start -->
+<section class="information">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4">
+                <div class="information__single information__single-1">
+                    <div class="information__icon">
+                        <span class="icon-route"></span>
+                    </div>
+                    <div class="information__text">
+                        <p><strong>UK Office</strong><br>
+                        Dinnington Business Centre<br>
+                        Dinnington, Sheffield, Worksop<br>
+                        South Yorkshire S25 3QX</p>
+                        <p><strong>Nigeria Office</strong><br>
+                        Plot 1015 Frai Close<br>
+                        Gwandal Centre, Wuse 2<br>
+                        Abuja FCT</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4">
+                <div class="information__single information__single-2">
+                    <div class="information__icon">
+                        <span class="icon-telephone-1"></span>
+                    </div>
+                    <div class="information__text">
+                        <h4>
+                            <a href="https://wa.me/447526801286" class="information__number-1">+44 7526 801286</a> <br>
+                            <span>(WhatsApp / Phone)</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4">
+                <div class="information__single information__single-3">
+                    <div class="information__icon">
+                        <span class="icon-email-2"></span>
+                    </div>
+                    <div class="information__text">
+                        <h4>
+                            <a href="mailto:hello@shedfactory.co" class="information__mail-1">hello@shedfactory.co</a><br>
+                            <span>We'll respond within 24 hours</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Information End -->
+
+<!-- Google Map Start -->
+<section class="contact-page-google-map">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d-4.1943900000000005!3d53.472225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48790aa9fae1f3d1%3A0x53aef27f3a7b7c0d!2sSheffield%2C%20UK!5e0!3m2!1sen!2sng!4v1647891234567!5m2!1sen!2sng"
+        class="contact-page-google-map__one" allowfullscreen loading="lazy"></iframe>
+</section>
+<!-- Google Map End -->
+
+<%- include('partials/footer') %>

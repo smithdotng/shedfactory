@@ -1,0 +1,189 @@
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="site-footer-bg" style="background-image: url(/assets/images/backgrounds/footer-bg.jpg)"></div>
+            <div class="site-footer-bg-overly"></div>
+            <div class="container">
+                <div class="site-footer__top">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-2">
+                            <div class="site-footer__top-logo">
+                                <a href="/"><img src="/assets/images/resources/footer-logo-1.png" alt="Shedfactory"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-10">
+                            <div class="site-footer__top-right">
+                                <div class="site-footer__call-and-social">
+                                    <div class="site-footer__call">
+                                        <p>Ready to transform your vision? <a href="https://wa.me/447526801286">+44 7526 801286</a></p>
+                                    </div>
+                                    <div class="site-footer__social">
+                                        <a href="https://facebook.com/shedfactorydotco" target="_blank"><i class="fab fa-facebook"></i></a>
+                                        <a href="https://instagram.com/shedfactorydotco" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.linkedin.com/company/shedfactory/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-footer__bottom">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="footer-widget__column footer-widget__contact">
+                                <h3 class="footer-widget__title">Contact</h3>
+                                <p class="footer-widget__contact-text">
+                                    <strong>UK Office</strong><br>
+                                    Dinnington Business Centre<br>
+                                    Dinnington, Sheffield, Worksop<br>
+                                    South Yorkshire S25 3QX
+                                </p>
+                                <h5 class="footer-widget__contact-phone-and-email">
+                                    <a href="mailto:hello@shedfactory.co" class="footer-widget__contact-email">hello@shedfactory.co</a><br>
+                                    <a href="https://wa.me/447526801286" class="footer-widget__contact-phone">+44 7526 801286</a>
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="footer-widget__column footer-widget__links clearfix">
+                                <h3 class="footer-widget__title">Quick Links</h3>
+                                <ul class="footer-widget__links-list list-unstyled">
+                                    <p class="footer-widget__contact-text">
+                                        <strong>Nigeria Office</strong><br>
+                                        Plot 1015 Frai Close<br>
+                                        Gwandal Centre, Wuse 2<br>
+                                        Abuja FCT
+                                    </p>
+                                </ul>
+                                <ul class="footer-widget__links-list footer-widget__links-list-two list-unstyled">
+                                    <li><a href="/about">Our Process</a></li>
+                                    <li><a href="/services">Our Services</a></li>
+                                    <li><a href="/contact">Get a Quote</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-5 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="footer-widget__column footer-widget__newsletter">
+                                <h3 class="footer-widget__title">Newsletter</h3>
+                                <p class="footer-widget__newsletter-text">Subscribe to receive insights, tips, and updates on bringing dreams to digital life.</p>
+                                
+                                <!-- AJAX Newsletter Form -->
+                                <form class="footer-widget__newsletter-form" id="newsletter-form">
+                                    <div class="footer-widget__newsletter-input-box">
+                                        <input type="email" name="email" placeholder="Email address" required>
+                                        <button type="submit" class="footer-widget__newsletter-btn" aria-label="Subscribe">
+                                            <i class="icon-right-arrow"></i>
+                                        </button>
+                                    </div>
+                                    <div class="newsletter-message" style="margin-top: 10px; font-size: 14px;"></div>
+                                </form>
+
+                                <!-- Optional: Terms acceptance (can be removed if not needed) -->
+                                <div class="footer-widget__newsletter-bottom">
+                                    <div class="footer-widget__newsletter-bottom-icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="footer-widget__newsletter-bottom-text">
+                                        <p>We respect your privacy. Unsubscribe anytime.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Business Hours (kept for consistency) -->
+                                <div class="footer-widget__hours" style="margin-top: 20px;">
+                                    <h4>Business Hours</h4>
+                                    <p>Monday - Friday: 9am - 6pm GMT</p>
+                                    <p>Weekend consultations by appointment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-footer__copy-right">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="site-footer__copy-right-inner">
+                                <p class="site-footer__copy-right-text">© 2026 Shedfactory Digital Creative Agency. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div><!-- /.page-wrapper -->
+
+    <!-- Mobile Navigation, Search Popup, Scroll to Top (already included in footer) -->
+    <!-- ... (existing mobile nav, search popup, scroll to top) ... -->
+
+    <!-- Newsletter AJAX Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('newsletter-form');
+            if (!form) return;
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const email = form.email.value.trim();
+                const messageDiv = form.querySelector('.newsletter-message');
+
+                // Basic validation
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    messageDiv.innerHTML = '<span style="color: #fe1f07;">Please enter a valid email address.</span>';
+                    return;
+                }
+
+                // Clear previous message
+                messageDiv.innerHTML = '';
+
+                try {
+                    const response = await fetch('/newsletter', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ email })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        messageDiv.innerHTML = '<span style="color: #28a745;">' + data.message + '</span>';
+                        form.reset(); // Clear the input
+                    } else {
+                        messageDiv.innerHTML = '<span style="color: #fe1f07;">' + data.message + '</span>';
+                    }
+                } catch (error) {
+                    messageDiv.innerHTML = '<span style="color: #fe1f07;">An error occurred. Please try again later.</span>';
+                    console.error('Newsletter error:', error);
+                }
+            });
+        });
+    </script>
+
+    <!-- Rest of the footer's existing scripts (already present) -->
+    <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendors/jarallax/jarallax.min.js"></script>
+    <script src="/assets/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="/assets/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/assets/vendors/nouislider/nouislider.min.js"></script>
+    <script src="/assets/vendors/odometer/odometer.min.js"></script>
+    <script src="/assets/vendors/swiper/swiper.min.js"></script>
+    <script src="/assets/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="/assets/vendors/wnumb/wNumb.min.js"></script>
+    <script src="/assets/vendors/wow/wow.js"></script>
+    <script src="/assets/vendors/isotope/isotope.js"></script>
+    <script src="/assets/vendors/countdown/countdown.min.js"></script>
+    <script src="/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/assets/vendors/twentytwenty/twentytwenty.js"></script>
+    <script src="/assets/vendors/twentytwenty/jquery.event.move.js"></script>
+    <script src="/assets/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="/assets/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/assets/vendors/vegas/vegas.min.js"></script>
+    <script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="/assets/vendors/timepicker/timePicker.js"></script>
+    <script src="/assets/js/sominx.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<%
+  const title = "Page Not Found";
+  const description = "The page you are looking for does not exist.";
+%>
+<%- include('partials/header', { title, description, currentPath }) %>
+
+<!-- Sticky Header -->
+<div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+</div>
+
+<!-- Page Header Start -->
+<section class="page-header" style="background-image: url(/assets/images/backgrounds/page-header-bg.jpg);">
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><span>/</span></li>
+                <li>404</li>
+            </ul>
+            <h2>Page Not Found</h2>
+        </div>
+    </div>
+</section>
+<!-- Page Header End -->
+
+<!-- Error 404 Start -->
+<section class="error-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="error-page__inner">
+                    <h1>404</h1>
+                    <h2>Oops! Page Not Found</h2>
+                    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+                    <a href="/" class="thm-btn error-page__btn">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Error 404 End -->
+
+<%- include('partials/footer') %>

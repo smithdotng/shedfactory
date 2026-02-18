@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title ? title + ' | Shedfactory' : 'Shedfactory || Digital Creative Agency' %></title>
+    <meta name="description" content="<%= description || 'Bringing dreams to life through exceptional digital experiences and creative design.' %>" />
+    
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="/assets/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="/assets/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="/assets/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/sominx-icons/style.css" />
+    <link rel="stylesheet" href="/assets/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="/assets/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/twentytwenty/twentytwenty.css" />
+    <link rel="stylesheet" href="/assets/vendors/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="/assets/vendors/bootstrap-select/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="/assets/vendors/timepicker/timePicker.css" />
+    <link rel="stylesheet" href="/assets/css/sominx.css" />
+    <link rel="stylesheet" href="/assets/css/sominx-responsive.css" />
+    <!-- Enhanced stats CSS (optional) -->
+    <link rel="stylesheet" href="/assets/css/enhanced-stats.css" />
+    
+    <!-- Page-specific inline styles (if any) -->
+    <% if (typeof styles !== 'undefined' && styles) { %>
+        <%= styles %>
+    <% } %>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <img class="preloader__image" width="60" src="/assets/images/loader.png" alt="" />
+    </div>
+    <!-- /.preloader -->
+
+    <div class="page-wrapper">
+        <!-- Main Header -->
+        <header class="main-header clearfix">
+            <nav class="main-menu clearfix">
+                <div class="main-menu-wrapper clearfix">
+                    <div class="main-menu-wrapper-inner clearfix">
+                        <div class="main-menu-wrapper__left clearfix">
+                            <div class="main-menu-wrapper__logo">
+                                <a href="/"><img src="/assets/images/resources/shedfactory_logo.png" alt="Shedfactory" width="250px"></a>
+                            </div>
+                            <div class="main-menu-wrapper__main-menu">
+                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                                <ul class="main-menu__list">
+                                    <li class="<%= currentPath === '/' ? 'current' : '' %>"><a href="/">Home</a></li>
+                                    <li class="<%= currentPath === '/about' ? 'current' : '' %>"><a href="/about">About</a></li>
+                                    <li class="dropdown <%= currentPath.startsWith('/services') || currentPath === '/brand-strategy' || currentPath === '/web-development' || currentPath === '/digital-marketing' || currentPath === '/ui-ux' || currentPath === '/content' ? 'current' : '' %>">
+                                        <a href="#">Services</a>
+                                        <ul>
+                                            <li><a href="/services">Our Services</a></li>
+                                            <li><a href="/brand-strategy">Brand Strategy</a></li>
+                                            <li><a href="/web-development">Web Development</a></li>
+                                            <li><a href="/digital-marketing">Digital Marketing</a></li>
+                                            <li><a href="/ui-ux">UI/UX Design</a></li>
+                                            <li><a href="/content">Content Creation</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- <li class="<%= currentPath === '/portfolio' ? 'current' : '' %>"><a href="/portfolio">Portfolio</a></li> -->
+                                    <li class="<%= currentPath === '/contact' ? 'current' : '' %>"><a href="/contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="main-menu-wrapper__right">
+                            <div class="main-menu-wrapper__call">
+                                <div class="main-menu-wrapper__call-icon">
+                                    <span class="icon-phone-call"></span>
+                                </div>
+                                <div class="main-menu-wrapper__call-number">
+                                    <p>Ready to transform?</p>
+                                    <a href="https://wa.me/447526801286">+44 7526 801286</a>
+                                </div>
+                            </div>
+                            <div class="main-menu-wrapper__search-box">
+                                <a href="#" class="main-menu-wrapper__search search-toggler icon-magnifying-glass"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- End Main Header -->
