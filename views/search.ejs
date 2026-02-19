@@ -1,0 +1,66 @@
+<%
+  const title = "Search Results";
+  const description = query ? `Search results for "${query}"` : 'Search the site';
+%>
+<%- include('partials/header', { title, description, currentPath }) %>
+
+<!-- Sticky Header -->
+<div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
+</div>
+
+<!-- Page Header Start -->
+<section class="page-header" style="background-image: url(/assets/images/backgrounds/page-header-bg-service.jpg);">
+    <div class="container">
+        <div class="page-header__inner">
+            <ul class="thm-breadcrumb list-unstyled">
+                <li><a href="/">Home</a></li>
+                <li><span>/</span></li>
+                <li>Search</li>
+            </ul>
+            <h2>Search Results</h2>
+        </div>
+    </div>
+</section>
+<!-- Page Header End -->
+
+<!-- Search Results Start -->
+<section class="search-results">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <form action="/search" method="GET" class="search-form" style="margin-bottom: 40px;">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search..." value="<%= query %>" required>
+                        <div class="input-group-append">
+                            <button class="thm-btn" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+
+                <% if (query) { %>
+                    <p class="search-stats">Found <%= results.length %> result(s) for "<%= query %>"</p>
+                <% } %>
+
+                <div class="search-results-list">
+                    <% if (results.length > 0) { %>
+                        <% results.forEach(result => { %>
+                            <div class="search-result-item" style="margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                                <h3><a href="<%= result.url %>"><%- result.title %></a></h3>
+                                <p><%- result.description %></p>
+                                <a href="<%= result.url %>" class="read-more">View page →</a>
+                            </div>
+                        <% }); %>
+                    <% } else if (query) { %>
+                        <p>No pages match your search. Try different keywords.</p>
+                    <% } else { %>
+                        <p>Enter a search term above.</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Search Results End -->
+
+<%- include('partials/footer') %>

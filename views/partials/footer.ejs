@@ -109,9 +109,22 @@
             </div>
         </footer>
     </div><!-- /.page-wrapper -->
+  <!-- Search Popup -->
+        <div class="search-popup">
+            <div class="search-popup__overlay search-toggler"></div>
+            <div class="search-popup__content">
+                <form action="/search" method="GET">
+                    <label for="search" class="sr-only">search here</label>
+                    <input type="text" id="search" name="q" placeholder="Search Here..." />
+                    <button type="submit" aria-label="search submit" class="thm-btn">
+                        <i class="icon-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- End Search Popup -->
 
-    <!-- Mobile Navigation, Search Popup, Scroll to Top (already included in footer) -->
-    <!-- ... (existing mobile nav, search popup, scroll to top) ... -->
+        <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
     <!-- Newsletter AJAX Script -->
     <script>
@@ -185,5 +198,39 @@
     <script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
     <script src="/assets/vendors/timepicker/timePicker.js"></script>
     <script src="/assets/js/sominx.js"></script>
+
+    <script>
+    (function() {
+        // Wait for the DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggler = document.querySelector('.search-toggler');
+            const popup = document.querySelector('.search-popup');
+            const overlay = document.querySelector('.search-popup__overlay');
+            
+            if (toggler && popup) {
+                // Open popup when search icon is clicked
+                toggler.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popup.classList.add('active'); // or 'show' – check which class the theme uses
+                });
+
+                // Close popup when overlay is clicked
+                if (overlay) {
+                    overlay.addEventListener('click', function() {
+                        popup.classList.remove('active');
+                    });
+                }
+
+                // Optional: close with ESC key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && popup.classList.contains('active')) {
+                        popup.classList.remove('active');
+                    }
+                });
+            }
+        });
+    })();
+</script>
+
 </body>
 </html>

@@ -261,6 +261,47 @@ app.post('/admin/contact/delete/:id', async (req, res) => {
   }
 });
 
+// ========== SEARCH ==========
+// Simple in‑memory search index
+const pages = [
+  { url: '/', title: 'Home', description: 'Shedfactory Digital Creative Agency - Bringing dreams to life through exceptional digital experiences.' },
+  { url: '/about', title: 'About Us', description: 'Learn about Shedfactory\'s 10-year journey, our mission, and the team.' },
+  { url: '/services', title: 'Our Services', description: 'Brand strategy, web development, UI/UX design, digital marketing.' },
+  { url: '/brand-strategy', title: 'Brand Strategy & Identity', description: 'Develop compelling brand narratives and visual identities.' },
+  { url: '/web-development', title: 'Web & App Development', description: 'Custom websites and applications.' },
+  { url: '/digital-marketing', title: 'Digital Marketing', description: 'Data-driven marketing strategies.' },
+  { url: '/ui-ux', title: 'UI/UX Design', description: 'Creating intuitive, beautiful interfaces.' },
+  { url: '/content', title: 'Content Creation', description: 'Compelling content that tells your story.' },
+  { url: '/portfolio', title: 'Our Portfolio', description: 'Browse our recent projects.' },
+  { url: '/case-studies', title: 'Case Studies', description: 'Detailed insights into impactful projects.' },
+  { url: '/contact', title: 'Contact Us', description: 'Get in touch to start your project.' }
+];
+
+app.get('/search', (req, res) => {
+  const query = req.query.q ? req.query.q.trim().toLowerCase() : '';
+  let results = [];
+
+  if (query) {
+    results = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.description.toLowerCase().includes(query)
+    ).map(page => ({
+      ...page,
+      // Highlight matched words (simple)
+      title: page.title.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>'),
+      description: page.description.replace(new RegExp(`(${query})`, 'gi'), '<mark>$1</mark>')
+    }));
+  }
+
+  res.render('search', {
+    currentPath: req.path,
+    title: 'Search Results',
+    description: `Search results for "${query}"`,
+    query,
+    results
+  });
+});
+
 // ========== 404 HANDLER ==========
 app.use((req, res) => {
   res.status(404).render('404', {
