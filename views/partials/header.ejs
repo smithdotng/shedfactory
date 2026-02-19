@@ -19,7 +19,7 @@
     <meta property="twitter:title" content="<%= title ? title + ' | Shedfactory' : 'Shedfactory || Digital Creative Agency' %>" />
     <meta property="twitter:description" content="<%= description || 'Bringing dreams to life through exceptional digital experiences and creative design.' %>" />
     <meta property="twitter:image" content="<%= (typeof baseUrl !== 'undefined' ? baseUrl : app.locals.baseUrl) %>/assets/images/og-image.jpg" />
-   
+
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" />
@@ -120,3 +120,9 @@
             </nav>
         </header>
         <!-- End Main Header -->
+
+        <!-- Sticky Header (cloned via JavaScript) -->
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+        <!-- End Sticky Header -->

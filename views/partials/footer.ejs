@@ -65,7 +65,7 @@
                             <div class="footer-widget__column footer-widget__newsletter">
                                 <h3 class="footer-widget__title">Newsletter</h3>
                                 <p class="footer-widget__newsletter-text">Subscribe to receive insights, tips, and updates on bringing dreams to digital life.</p>
-                                
+
                                 <!-- AJAX Newsletter Form -->
                                 <form class="footer-widget__newsletter-form" id="newsletter-form">
                                     <div class="footer-widget__newsletter-input-box">
@@ -77,7 +77,7 @@
                                     <div class="newsletter-message" style="margin-top: 10px; font-size: 14px;"></div>
                                 </form>
 
-                                <!-- Optional: Terms acceptance (can be removed if not needed) -->
+                                <!-- Privacy note -->
                                 <div class="footer-widget__newsletter-bottom">
                                     <div class="footer-widget__newsletter-bottom-icon">
                                         <i class="fa fa-check"></i>
@@ -87,7 +87,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Business Hours (kept for consistency) -->
+                                <!-- Business Hours -->
                                 <div class="footer-widget__hours" style="margin-top: 20px;">
                                     <h4>Business Hours</h4>
                                     <p>Monday - Friday: 9am - 6pm GMT</p>
@@ -109,70 +109,63 @@
             </div>
         </footer>
     </div><!-- /.page-wrapper -->
-  <!-- Search Popup -->
-        <div class="search-popup">
-            <div class="search-popup__overlay search-toggler"></div>
-            <div class="search-popup__content">
-                <form action="/search" method="GET">
-                    <label for="search" class="sr-only">search here</label>
-                    <input type="text" id="search" name="q" placeholder="Search Here..." />
-                    <button type="submit" aria-label="search submit" class="thm-btn">
-                        <i class="icon-magnifying-glass"></i>
-                    </button>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="/" aria-label="logo image"><img src="/assets/images/resources/shedfactory_logo.png" width="155" alt="Shedfactory" /></a>
+            </div>
+
+            <!-- Search Form Inside Mobile Menu -->
+            <div class="mobile-search-form">
+                <form action="/search" method="GET" class="mobile-search">
+                    <input type="text" name="q" placeholder="Search..." required>
+                    <button type="submit" aria-label="search"><i class="icon-magnifying-glass"></i></button>
                 </form>
             </div>
+
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:hello@shedfactory.co">hello@shedfactory.co</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="https://wa.me/447526801286">+44 7526 801286</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="https://facebook.com/shedfactorydotco" target="_blank" class="fab fa-facebook-square"></a>
+                    <a href="https://instagram.com/shedfactorydotco" target="_blank" class="fab fa-instagram"></a>
+                    <a href="https://www.linkedin.com/company/shedfactory/" target="_blank" class="fab fa-linkedin"></a>
+                </div>
+            </div>
         </div>
-        <!-- End Search Popup -->
+    </div>
 
-        <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Search Popup (for larger screens) -->
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <div class="search-popup__content">
+            <form action="/search" method="GET">
+                <label for="search" class="sr-only">search here</label>
+                <input type="text" id="search" name="q" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn">
+                    <i class="icon-magnifying-glass"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
-    <!-- Newsletter AJAX Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('newsletter-form');
-            if (!form) return;
+    <!-- Scroll to Top -->
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const email = form.email.value.trim();
-                const messageDiv = form.querySelector('.newsletter-message');
-
-                // Basic validation
-                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    messageDiv.innerHTML = '<span style="color: #fe1f07;">Please enter a valid email address.</span>';
-                    return;
-                }
-
-                // Clear previous message
-                messageDiv.innerHTML = '';
-
-                try {
-                    const response = await fetch('/newsletter', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({ email })
-                    });
-
-                    const data = await response.json();
-
-                    if (data.success) {
-                        messageDiv.innerHTML = '<span style="color: #28a745;">' + data.message + '</span>';
-                        form.reset(); // Clear the input
-                    } else {
-                        messageDiv.innerHTML = '<span style="color: #fe1f07;">' + data.message + '</span>';
-                    }
-                } catch (error) {
-                    messageDiv.innerHTML = '<span style="color: #fe1f07;">An error occurred. Please try again later.</span>';
-                    console.error('Newsletter error:', error);
-                }
-            });
-        });
-    </script>
-
-    <!-- Rest of the footer's existing scripts (already present) -->
+    <!-- JavaScript Vendor Scripts (as in original template) -->
     <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
     <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendors/jarallax/jarallax.min.js"></script>
@@ -197,40 +190,148 @@
     <script src="/assets/vendors/vegas/vegas.min.js"></script>
     <script src="/assets/vendors/jquery-ui/jquery-ui.js"></script>
     <script src="/assets/vendors/timepicker/timePicker.js"></script>
+
+    <!-- Main Template JS -->
     <script src="/assets/js/sominx.js"></script>
 
+    <!-- Custom Script for Mobile Menu, Search Toggle & Newsletter AJAX -->
+    <style>
+        /* Mobile search form styling */
+        .mobile-search-form {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-search {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .mobile-search input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 15px;
+            color: #fff;
+            font-size: 14px;
+        }
+        .mobile-search input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        .mobile-search button {
+            background: transparent;
+            border: none;
+            padding: 0 15px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .mobile-search button:hover {
+            color: #fe1f07;
+        }
+    </style>
     <script>
-    (function() {
-        // Wait for the DOM to be ready
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggler = document.querySelector('.search-toggler');
-            const popup = document.querySelector('.search-popup');
-            const overlay = document.querySelector('.search-popup__overlay');
-            
-            if (toggler && popup) {
-                // Open popup when search icon is clicked
-                toggler.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    popup.classList.add('active'); // or 'show' – check which class the theme uses
-                });
+        (function() {
+            'use strict';
 
-                // Close popup when overlay is clicked
-                if (overlay) {
-                    overlay.addEventListener('click', function() {
-                        popup.classList.remove('active');
+            // ----- Mobile Menu Toggle -----
+            document.addEventListener('DOMContentLoaded', function() {
+                const togglers = document.querySelectorAll('.mobile-nav__toggler');
+                const mobileNav = document.querySelector('.mobile-nav__wrapper');
+                
+                if (mobileNav && togglers.length) {
+                    // Function to open/close mobile nav
+                    const toggleMobileNav = (e) => {
+                        if (e) e.preventDefault();
+                        mobileNav.classList.toggle('active');
+                    };
+
+                    // Add click event to all togglers (header hamburger and close button)
+                    togglers.forEach(toggler => {
+                        toggler.addEventListener('click', toggleMobileNav);
+                    });
+
+                    // Close when clicking overlay (already a toggler, but ensure it's covered)
+                    const overlay = mobileNav.querySelector('.mobile-nav__overlay');
+                    if (overlay) {
+                        overlay.addEventListener('click', toggleMobileNav);
+                    }
+
+                    // Prevent clicks inside content from closing
+                    const content = mobileNav.querySelector('.mobile-nav__content');
+                    if (content) {
+                        content.addEventListener('click', (e) => e.stopPropagation());
+                    }
+                }
+
+                // ----- Search Popup Toggle (for desktop) -----
+                const searchTogglers = document.querySelectorAll('.search-toggler');
+                const searchPopup = document.querySelector('.search-popup');
+                
+                if (searchPopup && searchTogglers.length) {
+                    const toggleSearch = (e) => {
+                        e.preventDefault();
+                        searchPopup.classList.toggle('active');
+                    };
+
+                    searchTogglers.forEach(toggler => {
+                        toggler.addEventListener('click', toggleSearch);
+                    });
+
+                    const overlay = searchPopup.querySelector('.search-popup__overlay');
+                    if (overlay) {
+                        overlay.addEventListener('click', toggleSearch);
+                    }
+
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && searchPopup.classList.contains('active')) {
+                            searchPopup.classList.remove('active');
+                        }
                     });
                 }
 
-                // Optional: close with ESC key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && popup.classList.contains('active')) {
-                        popup.classList.remove('active');
-                    }
-                });
-            }
-        });
-    })();
-</script>
+                // ----- Newsletter AJAX -----
+                const form = document.getElementById('newsletter-form');
+                if (form) {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+                        const email = form.email.value.trim();
+                        const messageDiv = form.querySelector('.newsletter-message');
 
+                        // Basic email validation
+                        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                            messageDiv.innerHTML = '<span style="color: #fe1f07;">Please enter a valid email address.</span>';
+                            return;
+                        }
+
+                        messageDiv.innerHTML = '';
+
+                        try {
+                            const response = await fetch('/newsletter', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({ email })
+                            });
+
+                            const data = await response.json();
+
+                            if (data.success) {
+                                messageDiv.innerHTML = '<span style="color: #28a745;">' + data.message + '</span>';
+                                form.reset();
+                            } else {
+                                messageDiv.innerHTML = '<span style="color: #fe1f07;">' + data.message + '</span>';
+                            }
+                        } catch (error) {
+                            messageDiv.innerHTML = '<span style="color: #fe1f07;">An error occurred. Please try again later.</span>';
+                            console.error('Newsletter error:', error);
+                        }
+                    });
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
