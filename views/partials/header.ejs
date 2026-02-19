@@ -8,18 +8,18 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= baseUrl ? baseUrl + currentPath : currentPath %>" />
+    <meta property="og:url" content="<%= (typeof baseUrl !== 'undefined' ? baseUrl : app.locals.baseUrl) + (currentPath || '') %>" />
     <meta property="og:title" content="<%= title ? title + ' | Shedfactory' : 'Shedfactory || Digital Creative Agency' %>" />
     <meta property="og:description" content="<%= description || 'Bringing dreams to life through exceptional digital experiences and creative design.' %>" />
-    <meta property="og:image" content="<%= baseUrl ? baseUrl : '' %>/assets/images/og-image.jpg" />
+    <meta property="og:image" content="<%= (typeof baseUrl !== 'undefined' ? baseUrl : app.locals.baseUrl) %>/assets/images/og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="<%= baseUrl ? baseUrl + currentPath : currentPath %>" />
+    <meta property="twitter:url" content="<%= (typeof baseUrl !== 'undefined' ? baseUrl : app.locals.baseUrl) + (currentPath || '') %>" />
     <meta property="twitter:title" content="<%= title ? title + ' | Shedfactory' : 'Shedfactory || Digital Creative Agency' %>" />
     <meta property="twitter:description" content="<%= description || 'Bringing dreams to life through exceptional digital experiences and creative design.' %>" />
-    <meta property="twitter:image" content="<%= baseUrl ? baseUrl : '' %>/assets/images/og-image.jpg" />
-
+    <meta property="twitter:image" content="<%= (typeof baseUrl !== 'undefined' ? baseUrl : app.locals.baseUrl) %>/assets/images/og-image.jpg" />
+   
     <!-- favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" />

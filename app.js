@@ -34,6 +34,9 @@ const contactSchema = new mongoose.Schema({
 const Subscriber = mongoose.model('Subscriber', subscriberSchema);
 const Contact = mongoose.model('Contact', contactSchema);
 
+// Set global variables for views
+app.locals.baseUrl = process.env.BASE_URL || 'https://shedfactory.co';
+
 // ========== Middleware ==========
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
