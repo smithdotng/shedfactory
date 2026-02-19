@@ -1,9 +1,8 @@
 <%
   const title = "Home";
   const description = "Shedfactory Digital Creative Agency - Bringing dreams to life through exceptional digital experiences.";
-  
 %>
-<%- include('partials/header', { title, description}) %>
+<%- include('partials/header', { title, description, currentPath }) %>
 
 <!-- Sticky Header -->
 <div class="stricky-header stricked-menu main-menu">
@@ -266,9 +265,10 @@
                     alt=""></div>
             <div class="discover-world-bg"
                 style="background-image: url(/assets/images/backgrounds/shedfactory-process.jpg)"></div>
-            <h2 class="discover-world__title">Our Dream-to-Reality <br> Process</h2>
+            <h2 class="discover-world__title">Our Dream-to-Reality <br> Process | Shed.ng</h2>
             <div class="discover-world__video-link">
-                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" class="video-popup">
+                <!-- Replaced YouTube link with local video file -->
+                <a href="/assets/videos/vid1.mp4" class="video-popup">
                     <div class="discover-world__video-icon">
                         <span class="icon-play-button"></span>
                         <i class="ripple"></i>
