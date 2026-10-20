@@ -32,7 +32,7 @@ export const stats = [
   { value: '10', label: 'Years of excellence' },
   { value: '100+', label: 'Dreams brought to life' },
   { value: '25+', label: 'Industries served' },
-  { value: '3', label: 'Platforms we own and run' },
+  { value: '5', label: 'Platforms we own and run' },
 ];
 
 export type Product = {
@@ -135,6 +135,62 @@ export const products: Product[] = [
         'Track how your listings perform',
         'Referral links and QR codes that earn agents commission',
         'Projects and Found Fractional for developers and investors',
+      ],
+    },
+  },
+  {
+    slug: 'haulage',
+    name: 'Haulage',
+    domain: 'haulage.ng',
+    url: 'https://haulage.ng',
+    tagline: "Nigeria's logistics operating system.",
+    category: 'Haulage & logistics marketplace',
+    summary:
+      'A platform for finding and booking goods transport across Nigeria — from same-day dispatch bikes to container and refrigerated trucks — with verified operators, online payment and live GPS tracking.',
+    accent: '#4f8cff',
+    forUsers: {
+      title: 'For shippers',
+      points: [
+        'Search operators by route and vehicle type, and compare prices',
+        'Book consignments and pay online, with a waybill for every shipment',
+        'Add goods-in-transit insurance at checkout',
+        'Track shipments on a live GPS map',
+      ],
+    },
+    forBusiness: {
+      title: 'For logistics operators',
+      points: [
+        'Register your business and fleet, from motorcycles to container trucks',
+        'Set your own routes and pricing, including per-kg rates and weight limits',
+        'Store compliance documents with expiry tracking',
+        'Verified-operator status that builds trust with shippers',
+      ],
+    },
+  },
+  {
+    slug: '74-tribe',
+    name: '74 Tribe Studios',
+    domain: '74triberecords.com',
+    url: 'https://74triberecords.com',
+    tagline: 'Watch the shows. Book the studio.',
+    category: 'Media & studio hire',
+    summary:
+      'A home for podcast-style video shows and reels — and a production space where creators can book sets, a recording studio and meeting rooms for their own podcast or show.',
+    accent: '#a37bff',
+    forUsers: {
+      title: 'For viewers',
+      points: [
+        'Stream full episodes and short reels',
+        'Browse the archive of past episodes',
+        'Save episodes to playlists and your library',
+      ],
+    },
+    forBusiness: {
+      title: 'For creators & brands',
+      points: [
+        'Book lounge, coffee-table, news and full sets for your show',
+        'Hire the recording studio and meeting rooms',
+        'Take a studio tour before you book',
       ],
     },
   },
@@ -265,12 +321,19 @@ export const services: Service[] = [
   },
 ];
 
-export const work = [
+export const work: { client: string; tags: string; image: string; summary: string; url?: string }[] = [
   {
     client: 'Full Moon Hotels',
     tags: 'Brand Strategy · Web Development · Booking Engine',
     image: '/assets/images/portfolio/fullmoon.png',
     summary: 'A website and booking engine that transformed how reservations are managed and grew direct bookings.',
+  },
+  {
+    client: 'Motown Electrical Services',
+    tags: 'Website Design · Development · Hosting',
+    image: '/assets/images/portfolio/motown.png',
+    summary: 'A corporate website for an Abuja electrical engineering company — wiring, power distribution, solar and maintenance services.',
+    url: 'https://motownelectricals.com',
   },
   {
     client: 'Emetoni',
@@ -329,7 +392,7 @@ export const processSteps = [
 export const studio = {
   headline: 'Got an idea? Let’s bring it to life.',
   intro:
-    'We don’t just build for clients — we build our own products. Diner, Glee and Found started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
+    'We don’t just build for clients — we build our own products. Diner, Glee, Found, Haulage and 74 Tribe started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
   stages: [
     {
       title: 'Shape the idea',

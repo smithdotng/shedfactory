@@ -36,7 +36,7 @@ export default function Products() {
           </div>
         </div>
       </section>
-      <CtaBand title="Want to list your business on one of our platforms?" text="Restaurants, beauty professionals and realtors can join Diner, Glee or Found today — or talk to us about a partnership." label="Talk to us" />
+      <CtaBand title="Want to list your business on one of our platforms?" text="Restaurants, beauty professionals, realtors, logistics operators and creators can join our platforms today — or talk to us about a partnership." label="Talk to us" />
     </>
   );
 }

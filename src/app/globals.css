@@ -345,3 +345,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero__product { flex-direction: column; align-items: flex-start; gap: 4px; }
   .hero__product > span:last-child { text-align: left; }
 }
+/* 5 products: 3 across, then 2 wider cards */
+@media (min-width: 981px) {
+  .products { grid-template-columns: repeat(6, 1fr); }
+  .product-card { grid-column: span 2; }
+  .product-card:nth-child(4):nth-last-child(2), .product-card:nth-child(5):last-child { grid-column: span 3; }
+}
+a.work-card { display: block; }

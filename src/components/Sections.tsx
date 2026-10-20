@@ -66,11 +66,19 @@ export function ServiceGrid({ withCta = true }: { withCta?: boolean }) {
   );
 }
 
+function WorkCard({ url, children }: { url?: string; children: React.ReactNode }) {
+  return url ? (
+    <a href={url} target="_blank" rel="noopener noreferrer" className="work-card">{children}</a>
+  ) : (
+    <article className="work-card">{children}</article>
+  );
+}
+
 export function WorkGrid({ limit }: { limit?: number }) {
   return (
     <div className="work">
       {work.slice(0, limit).map((w) => (
-        <article className="work-card" key={w.client}>
+        <WorkCard key={w.client} url={w.url}>
           <div className="work-card__img">
             <img src={w.image} alt={`${w.client} project`} loading="lazy" />
           </div>
@@ -79,7 +87,7 @@ export function WorkGrid({ limit }: { limit?: number }) {
             <h3>{w.client}</h3>
             <p>{w.summary}</p>
           </div>
-        </article>
+        </WorkCard>
       ))}
     </div>
   );

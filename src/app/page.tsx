@@ -73,7 +73,7 @@ export default function Home() {
             <span className="eyebrow">Our products</span>
             <h2 className="h-section">We don’t just build for others. We build our own.</h2>
             <p className="lead">
-              Three Nigerian platforms, designed, engineered and operated in-house — connecting people with places to eat, beauty professionals and property.
+              Five platforms, designed, engineered and operated in-house — for places to eat, beauty, property, logistics and media.
             </p>
           </div>
           <ProductCards />
