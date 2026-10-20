@@ -7,7 +7,7 @@ import { ProductCards } from '@/components/Sections';
 
 export const metadata = pageMeta({
   title: 'Our Products',
-  description: 'Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — platforms designed, built and run by Shedfactory.',
+  description: 'Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — platforms designed, built and run by Shedfactory.',
   path: '/products',
 });
 
@@ -37,7 +37,7 @@ export default function Products() {
           </div>
         </div>
       </section>
-      <CtaBand title="Want to list your business on one of our platforms?" text="Restaurants, beauty professionals, realtors, logistics operators and creators can join our platforms today — or talk to us about a partnership." label="Talk to us" />
+      <CtaBand title="Want to list your business on one of our platforms?" text="Sellers, restaurants, beauty professionals, realtors, logistics operators and creators can join our platforms today — or talk to us about a partnership." label="Talk to us" />
     </>
   );
 }

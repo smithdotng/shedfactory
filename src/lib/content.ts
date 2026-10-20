@@ -5,7 +5,7 @@ export const site = {
   legalName: 'Shedfactory Limited',
   tagline: 'Bringing dreams to digital life',
   description:
-    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — and help founders and companies turn ideas into brands, websites and products.',
+    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — and help founders and companies turn ideas into brands, websites and products.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://shedfactory.co',
   email: 'hello@shedfactory.co',
   phone: '+44 7526 801286',
@@ -32,7 +32,7 @@ export const stats = [
   { value: '10', label: 'Years of excellence' },
   { value: '100+', label: 'Dreams brought to life' },
   { value: '25+', label: 'Industries served' },
-  { value: '5', label: 'Platforms we own and run' },
+  { value: '6', label: 'Platforms we own and run' },
 ];
 
 export type Product = {
@@ -50,6 +50,35 @@ export type Product = {
 };
 
 export const products: Product[] = [
+  {
+    slug: 'shed',
+    name: 'Shed',
+    domain: 'shed.ng',
+    url: 'https://shed.ng',
+    tagline: 'Sell anywhere, manage everything.',
+    category: 'Marketplace & business tools',
+    summary:
+      'A local marketplace and business toolkit in one — sellers get a free online store, inventory, point of sale and invoicing, while buyers shop local businesses across Nigeria and pay the seller directly.',
+    accent: '#ff9f1c',
+    forUsers: {
+      title: 'For shoppers',
+      points: [
+        'Browse local stores in one place, by category, market or search',
+        'Order in a few taps and pay the seller directly',
+        'Chat with the seller on WhatsApp before you pay',
+        'Get an emailed invoice for every order, and look for verified sellers',
+      ],
+    },
+    forBusiness: {
+      title: 'For sellers & businesses',
+      points: [
+        'Open a free online store in minutes',
+        'Manage stock and inventory, with point of sale for in-person sales',
+        'Send invoices and take orders online',
+        'Separate logins for sellers, outlets and admins, plus an affiliate programme',
+      ],
+    },
+  },
   {
     slug: 'diner',
     name: 'Diner',
@@ -392,7 +421,7 @@ export const processSteps = [
 export const studio = {
   headline: 'Got an idea? Let’s bring it to life.',
   intro:
-    'We don’t just build for clients — we build our own products. Diner, Glee, Found, Haulage and 74 Tribe started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
+    'We don’t just build for clients — we build our own products. Shed, Diner, Glee, Found, Haulage and 74 Tribe started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
   stages: [
     {
       title: 'Shape the idea',
