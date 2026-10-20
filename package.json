@@ -1,23 +1,28 @@
 {
   "name": "shedfactory",
-  "version": "1.0.0",
-  "description": "Shedfactory Digital Creative Agency website built with Node.js, Express, and EJS",
-  "main": "app.js",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Shedfactory — digital creative agency and venture studio (Next.js)",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
-  "dependencies": {
-    "dotenv": "^17.3.1",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "express-basic-auth": "^1.2.1",
-    "git": "^0.1.5",
-    "mongoose": "^8.23.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "author": "Shedfactory",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource-variable/jost": "^5.3.0",
+    "lucide-react": "^1.60.0",
+    "mongoose": "^8.24.5",
+    "next": "^15.5.28",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^5.9.3"
+  }
 }
