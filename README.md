@@ -8,8 +8,8 @@ Website for Shedfactory Limited: a digital creative agency and product studio. B
 | --- | --- |
 | `/` | Home — hero, products, services, startup offer, process, work, testimonials, FAQ |
 | `/about` | Story, values, products, testimonials |
-| `/products` | Diner.ng, Glee.ng, Found.ng overview |
-| `/products/[diner\|glee\|found]` | Individual product pages |
+| `/products` | Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios overview |
+| `/products/[slug]` | Individual product pages (`diner`, `glee`, `found`, `haulage`, `74-tribe`) |
 | `/services` and `/services/[slug]` | Brand strategy, web & app development, UI/UX, digital marketing, content |
 | `/startups` | Venture building for founders and companies, with an idea-submission form |
 | `/work` | Portfolio |
