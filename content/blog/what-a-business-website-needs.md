@@ -4,6 +4,7 @@ description: Beautiful is not enough. The practical checklist we use for every w
 date: 2026-10-06
 author: Shedfactory Team
 tags: [Web Development, Marketing]
+cover: /og/services.jpg
 ---
 
 A good-looking website that nobody finds, or that loads slowly on a phone, isn't doing its job. Here's the checklist we work through on every site we build for clients.

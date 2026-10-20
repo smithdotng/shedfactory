@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = products.find((x) => x.slug === slug);
   if (!p) return {};
-  return pageMeta({ title: `${p.domain} — ${p.tagline}`, description: p.summary, path: `/products/${p.slug}`, image: `/products/${p.slug}/opengraph-image` });
+  return pageMeta({ title: `${p.domain} — ${p.tagline}`, description: p.summary, path: `/products/${p.slug}`, image: `/og/product-${p.slug}.jpg` });
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -7,6 +7,7 @@ export const metadata = pageMeta({
   title: 'Our Services',
   description: 'Brand strategy, web and app development, UI/UX design, digital marketing, content creation and startup venture building.',
   path: '/services',
+  image: '/og/services.jpg',
 });
 
 const industries = ['Hospitality & Travel', 'Healthcare & Wellness', 'Professional Services', 'Retail & E-commerce', 'Real Estate', 'Logistics', 'Food & Beverage', 'Beauty'];

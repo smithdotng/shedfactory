@@ -4,6 +4,7 @@ description: The most expensive mistake founders make is building too much, too 
 date: 2026-10-13
 author: Shedfactory Team
 tags: [Startups, MVP]
+cover: /og/about.jpg
 ---
 
 Every founder we meet has more ideas than budget. That's normal — and it's exactly why the first version of your product should be smaller than you think.

@@ -12,7 +12,7 @@ export type Post = {
   date: string; // YYYY-MM-DD
   author: string;
   tags: string[];
-  cover?: string; // optional custom cover; otherwise the generated share image is used
+  cover?: string; // cover photo, also used as the share image; defaults to /og/blog.jpg
   readingMinutes: number;
   html: string;
 };
@@ -48,7 +48,7 @@ export function getPost(slug: string): Post | undefined {
   return getPosts().find((p) => p.slug === slug);
 }
 
-export const coverFor = (p: Post) => p.cover || `/blog/${p.slug}/opengraph-image`;
+export const coverFor = (p: Post) => p.cover || '/og/blog.jpg';
 
 export const formatDate = (d: string) =>
   d ? new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';

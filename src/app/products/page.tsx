@@ -9,6 +9,7 @@ export const metadata = pageMeta({
   title: 'Our Products',
   description: 'Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — platforms designed, built and run by Shedfactory.',
   path: '/products',
+  image: '/og/products.jpg',
 });
 
 export default function Products() {

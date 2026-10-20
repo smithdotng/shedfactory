@@ -10,6 +10,7 @@ export const metadata = pageMeta({
   title: 'For Startups & Companies — Bring Your Idea to Life',
   description: 'Shedfactory helps startup founders and companies turn ideas into launched products: strategy, brand, MVP design and development, hosting and growth.',
   path: '/startups',
+  image: '/og/startups.jpg',
 });
 
 export default function Startups() {

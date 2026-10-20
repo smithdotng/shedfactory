@@ -4,6 +4,7 @@ description: Shed, Diner, Glee, Found, Haulage and 74 Tribe aren't side projects
 date: 2026-10-20
 author: Shedfactory Team
 tags: [Products, Studio]
+cover: /og/products.jpg
 ---
 
 Most agencies talk about building products. We decided to actually run some.

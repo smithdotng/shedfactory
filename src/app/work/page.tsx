@@ -7,6 +7,7 @@ export const metadata = pageMeta({
   title: 'Our Work',
   description: 'Selected Shedfactory projects for hotels, healthcare, logistics and community organisations — plus the platforms we run ourselves.',
   path: '/work',
+  image: '/og/work.jpg',
 });
 
 export default function Work() {

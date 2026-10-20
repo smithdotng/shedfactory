@@ -8,6 +8,7 @@ export const metadata = pageMeta({
   title: 'About Us',
   description: 'Shedfactory’s story: ten years of turning dreams into brands, websites and platforms across the UK and Nigeria.',
   path: '/about',
+  image: '/og/about.jpg',
 });
 
 const values = [

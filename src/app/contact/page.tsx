@@ -8,6 +8,7 @@ export const metadata = pageMeta({
   title: 'Contact Us',
   description: 'Ready to bring your dream to life? Get in touch with Shedfactory in the UK or Nigeria to start your project.',
   path: '/contact',
+  image: '/og/contact.jpg',
 });
 
 export default function Contact() {

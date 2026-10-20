@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const s = services.find((x) => x.slug === slug);
-  return s ? pageMeta({ title: s.title, description: s.short, path: `/services/${s.slug}`, image: `/services/${s.slug}/opengraph-image` }) : {};
+  return s ? pageMeta({ title: s.title, description: s.short, path: `/services/${s.slug}`, image: `/og/service-${s.slug}.jpg` }) : {};
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {

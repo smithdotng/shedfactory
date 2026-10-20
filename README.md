@@ -29,11 +29,16 @@ Almost all copy — products, services, portfolio, testimonials, FAQs, stats, co
 2. Fill in the `title`, `description`, `date`, `author` and `tags` at the top, then write the post in Markdown.
 3. Commit and push. The post appears on `/blog`, the home page, the sitemap and the RSS feed.
 
-A branded cover and share image are generated automatically. To use a photo instead, add it under `public/assets/images/blog/` and set `cover:` in the post. Posts dated in the future stay hidden until that day (checked hourly). Files starting with `_` are never published.
+Set `cover:` to a 1200×630 photo (e.g. one you add under `public/assets/images/blog/`); it's used as the post's cover and its share image. Without one, the default blog photo is used. Posts dated in the future stay hidden until that day (checked hourly). Files starting with `_` are never published.
 
 ## Share previews (Open Graph)
 
-Every page has its own Open Graph and Twitter tags (title, description, URL, image) via `pageMeta()` in `src/lib/seo.ts`. Share images are generated at 1200×630 by `src/lib/og.tsx`: a site card for general pages, and individual cards for each product, service and blog post.
+Every page has its own Open Graph and Twitter tags (title, description, URL, image) via `pageMeta()` in `src/lib/seo.ts`. Share images are real photos, 1200×630, in `public/og/`:
+
+- Products use each product's own share artwork (Diner, Glee, Haulage, 74 Tribe) or a photo (Shed, Found) — sources in `scripts/og-sources/`
+- Site and service pages use the site's photos with a small Shedfactory logo
+
+To change one, swap the source photo and run `python3 scripts/make-og.py` (needs Pillow), or simply replace the file in `public/og/` with your own 1200×630 JPG.
 
 ## Running locally
 

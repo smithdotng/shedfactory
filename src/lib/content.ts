@@ -360,7 +360,7 @@ export const work: { client: string; tags: string; image: string; summary: strin
   {
     client: 'Motown Electrical Services',
     tags: 'Website Design · Development · Hosting',
-    image: '/assets/images/portfolio/motown.png',
+    image: '/assets/images/portfolio/motown.jpg',
     summary: 'A corporate website for an Abuja electrical engineering company — wiring, power distribution, solar and maintenance services.',
     url: 'https://motownelectricals.com',
   },

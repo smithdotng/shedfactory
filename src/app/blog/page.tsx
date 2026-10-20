@@ -11,6 +11,7 @@ export const metadata = pageMeta({
   title: 'Blog',
   description: 'Ideas, guides and lessons from Shedfactory on building brands, websites and digital products.',
   path: '/blog',
+  image: '/og/blog.jpg',
 });
 
 export default function Blog() {

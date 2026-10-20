@@ -3,7 +3,7 @@ import { site } from './content';
 
 /**
  * Per-page metadata with matching Open Graph + Twitter tags and a canonical URL.
- * Share images come from the nearest opengraph-image.tsx unless `image` is given.
+ * Share image defaults to /og/default.jpg unless `image` is given.
  */
 export function pageMeta({
   title,
@@ -25,8 +25,8 @@ export function pageMeta({
   tags?: string[];
 }): Metadata {
   const fullTitle = `${title} | ${site.name}`;
-  // Default site card; product, service and blog pages pass their own generated image.
-  const images = [{ url: image || '/opengraph-image', width: 1200, height: 630, alt: title }];
+  // Photo share images live in public/og/ (built by scripts/make-og.py).
+  const images = [{ url: image || '/og/default.jpg', width: 1200, height: 630, alt: title }];
   return {
     title,
     description,
