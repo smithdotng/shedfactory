@@ -1,14 +1,15 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import CtaBand from '@/components/CtaBand';
 import { ProductCards } from '@/components/Sections';
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: 'Our Products',
-  description: 'Diner.ng, Glee.ng and Found.ng — Nigerian platforms designed, built and run by Shedfactory.',
-};
+  description: 'Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — platforms designed, built and run by Shedfactory.',
+  path: '/products',
+});
 
 export default function Products() {
   return (

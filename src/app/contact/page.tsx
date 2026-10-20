@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
 import { site } from '@/lib/content';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: 'Contact Us',
   description: 'Ready to bring your dream to life? Get in touch with Shedfactory in the UK or Nigeria to start your project.',
-};
+  path: '/contact',
+});
 
 export default function Contact() {
   return (

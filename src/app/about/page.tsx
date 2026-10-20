@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { Check } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import CtaBand from '@/components/CtaBand';
 import { Stats, Testimonials, ProductCards } from '@/components/Sections';
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: 'About Us',
   description: 'Shedfactory’s story: ten years of turning dreams into brands, websites and platforms across the UK and Nigeria.',
-};
+  path: '/about',
+});
 
 const values = [
   { title: 'Every dream matters', text: 'Big or small, every idea gets our full attention and honest advice.', img: '/assets/images/philosophy/vision.jpg' },

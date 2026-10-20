@@ -1,12 +1,13 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import PageHero from '@/components/PageHero';
 import CtaBand from '@/components/CtaBand';
 import { ServiceGrid, ProcessSteps, Stats } from '@/components/Sections';
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: 'Our Services',
   description: 'Brand strategy, web and app development, UI/UX design, digital marketing, content creation and startup venture building.',
-};
+  path: '/services',
+});
 
 const industries = ['Hospitality & Travel', 'Healthcare & Wellness', 'Professional Services', 'Retail & E-commerce', 'Real Estate', 'Logistics', 'Food & Beverage', 'Beauty'];
 

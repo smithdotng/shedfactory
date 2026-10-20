@@ -3,8 +3,10 @@ import { ArrowRight, Check } from 'lucide-react';
 import { products, studio } from '@/lib/content';
 import { Stats, ProductCards, ServiceGrid, WorkGrid, Testimonials, Faq, ProcessSteps } from '@/components/Sections';
 import CtaBand from '@/components/CtaBand';
+import { getPosts, coverFor, formatDate } from '@/lib/blog';
 
 export default function Home() {
+  const latest = getPosts().slice(0, 3);
   return (
     <>
       <section className="hero">
@@ -146,7 +148,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      {latest.length > 0 && (
+        <section className="section">
+          <div className="wrap">
+            <div className="section-head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', maxWidth: 'none', gap: 20, flexWrap: 'wrap' }}>
+              <div>
+                <span className="eyebrow">From the blog</span>
+                <h2 className="h-section" style={{ margin: 0 }}>Notes from the studio</h2>
+              </div>
+              <Link href="/blog" className="btn btn--ghost">All articles <ArrowRight size={18} /></Link>
+            </div>
+            <div className="posts" style={{ marginTop: 0 }}>
+              {latest.map((p) => (
+                <Link key={p.slug} href={`/blog/${p.slug}`} className="post-card">
+                  <div className="post-card__img"><img src={coverFor(p)} alt="" width={1200} height={630} loading="lazy" /></div>
+                  <div className="post-card__body">
+                    <span className="post-meta">{formatDate(p.date)} · {p.readingMinutes} min read</span>
+                    <h3>{p.title}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section" style={{ paddingTop: 0 }}>
         <div className="wrap split split--top">
           <div>
             <span className="eyebrow">FAQ</span>

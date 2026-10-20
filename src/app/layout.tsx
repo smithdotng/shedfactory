@@ -8,14 +8,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: `${site.name} — Digital Creative Agency & Product Studio`, template: `%s | ${site.name}` },
   description: site.description,
+  alternates: { canonical: '/', types: { 'application/rss+xml': '/blog/rss.xml' } },
   openGraph: {
     type: 'website',
+    url: '/',
     siteName: site.name,
+    locale: 'en_GB',
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
-    images: ['/assets/images/og-image.jpg'],
   },
-  twitter: { card: 'summary_large_image', images: ['/assets/images/og-image.jpg'] },
+  twitter: { card: 'summary_large_image', title: `${site.name} — ${site.tagline}`, description: site.description },
   icons: {
     icon: [
       { url: '/assets/images/favicons/favicon-32x32.png', sizes: '32x32' },

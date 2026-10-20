@@ -5,7 +5,7 @@ export const site = {
   legalName: 'Shedfactory Limited',
   tagline: 'Bringing dreams to digital life',
   description:
-    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Diner.ng, Glee.ng and Found.ng — and help founders and companies turn ideas into brands, websites and products.',
+    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — and help founders and companies turn ideas into brands, websites and products.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://shedfactory.co',
   email: 'hello@shedfactory.co',
   phone: '+44 7526 801286',

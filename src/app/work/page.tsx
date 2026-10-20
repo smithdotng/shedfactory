@@ -1,12 +1,13 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import PageHero from '@/components/PageHero';
 import CtaBand from '@/components/CtaBand';
 import { WorkGrid, Testimonials, ProductCards } from '@/components/Sections';
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: 'Our Work',
   description: 'Selected Shedfactory projects for hotels, healthcare, logistics and community organisations — plus the platforms we run ourselves.',
-};
+  path: '/work',
+});
 
 export default function Work() {
   return (

@@ -26,6 +26,7 @@ export default function Footer() {
                 <li key={p.slug}><Link href={`/products/${p.slug}`}>{p.domain}</Link></li>
               ))}
               <li><Link href="/startups">Build with us</Link></li>
+              <li><Link href="/blog">Blog</Link></li>
             </ul>
           </div>
           <div>

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { studio, products } from '@/lib/content';
@@ -6,11 +6,11 @@ import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
 import { Faq } from '@/components/Sections';
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: 'For Startups & Companies — Bring Your Idea to Life',
-  description:
-    'Shedfactory helps startup founders and companies turn ideas into launched products: strategy, brand, MVP design and development, hosting and growth.',
-};
+  description: 'Shedfactory helps startup founders and companies turn ideas into launched products: strategy, brand, MVP design and development, hosting and growth.',
+  path: '/startups',
+});
 
 export default function Startups() {
   return (

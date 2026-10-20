@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ArrowUpRight, Check, ArrowRight } from 'lucide-react';
 import { products } from '@/lib/content';
 import CtaBand from '@/components/CtaBand';
+import { pageMeta } from '@/lib/seo';
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = products.find((x) => x.slug === slug);
   if (!p) return {};
-  return { title: `${p.domain} — ${p.tagline}`, description: p.summary };
+  return pageMeta({ title: `${p.domain} — ${p.tagline}`, description: p.summary, path: `/products/${p.slug}`, image: `/products/${p.slug}/opengraph-image` });
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {

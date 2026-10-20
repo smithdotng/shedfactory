@@ -5,6 +5,7 @@ import { Check, ArrowRight } from 'lucide-react';
 import { services } from '@/lib/content';
 import PageHero from '@/components/PageHero';
 import CtaBand from '@/components/CtaBand';
+import { pageMeta } from '@/lib/seo';
 import { ProcessSteps, Testimonials } from '@/components/Sections';
 
 export function generateStaticParams() {
@@ -14,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const s = services.find((x) => x.slug === slug);
-  return s ? { title: s.title, description: s.short } : {};
+  return s ? pageMeta({ title: s.title, description: s.short, path: `/services/${s.slug}`, image: `/services/${s.slug}/opengraph-image` }) : {};
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
