@@ -37,7 +37,7 @@ export default function About() {
               Our clients bring the passion and the vision. We bring the creative and technical expertise to turn abstract concepts into compelling brands, engaging websites, powerful web applications and results-driven marketing.
             </p>
             <p className="muted">
-              Along the way we started building our own products. Shed, Diner, Glee, Found, Haulage and 74 Tribe are live platforms we design, engineer and operate ourselves — which means when we advise a founder, we’re speaking from experience.
+              Along the way we started building our own products. Shed, Diner, Glee, Found, Haulage, 74 Tribe and CareShed are live platforms we design, engineer and operate ourselves — which means when we advise a founder, we’re speaking from experience.
             </p>
             <ul className="check-list">
               {['Offices in the UK and Nigeria', 'Partnership approach, not just projects', 'From brand strategy to hosting and support'].map((t) => (

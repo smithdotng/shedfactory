@@ -5,7 +5,7 @@ export const site = {
   legalName: 'Shedfactory Limited',
   tagline: 'Bringing dreams to digital life',
   description:
-    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng and 74 Tribe Studios — and help founders and companies turn ideas into brands, websites and products.',
+    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios and CareShed — and help founders and companies turn ideas into brands, websites and products.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://shedfactory.co',
   email: 'hello@shedfactory.co',
   phone: '+44 7526 801286',
@@ -32,7 +32,7 @@ export const stats = [
   { value: '10', label: 'Years of excellence' },
   { value: '100+', label: 'Dreams brought to life' },
   { value: '25+', label: 'Industries served' },
-  { value: '6', label: 'Platforms we own and run' },
+  { value: '7', label: 'Platforms we own and run' },
 ];
 
 export type Product = {
@@ -220,6 +220,34 @@ export const products: Product[] = [
         'Book lounge, coffee-table, news and full sets for your show',
         'Hire the recording studio and meeting rooms',
         'Take a studio tour before you book',
+      ],
+    },
+  },
+  {
+    slug: 'careshed',
+    name: 'CareShed',
+    domain: 'careshed.co.uk',
+    url: 'https://careshed.co.uk',
+    tagline: 'Because great care deserves great technology.',
+    category: 'Care management software (UK)',
+    summary:
+      'Care management software for UK domiciliary, residential, supported-living and day-centre providers — rostering, visit records, care plans, payroll and a family portal in one place.',
+    accent: '#6c79d6',
+    forUsers: {
+      title: 'For carers, families & people supported',
+      points: [
+        'Carers see the day’s visits on their phone, check in and out, and record medication, mood and notes',
+        'Families read visit notes as they’re written, see upcoming visits and message the care team',
+        'People supported get a calm personal space: a visual daily plan, sensory activities and videos chosen by their team',
+      ],
+    },
+    forBusiness: {
+      title: 'For care providers',
+      points: [
+        'Build rotas and match carers to clients by skills and location',
+        'Keep care plans current and export CQC-ready reports',
+        'Run payroll from completed visits',
+        'Plans from £99 a month, with a 14-day free trial and no card needed',
       ],
     },
   },
@@ -421,7 +449,7 @@ export const processSteps = [
 export const studio = {
   headline: 'Got an idea? Let’s bring it to life.',
   intro:
-    'We don’t just build for clients — we build our own products. Shed, Diner, Glee, Found, Haulage and 74 Tribe started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
+    'We don’t just build for clients — we build our own products. Shed, Diner, Glee, Found, Haulage, 74 Tribe and CareShed started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
   stages: [
     {
       title: 'Shape the idea',

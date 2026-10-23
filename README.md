@@ -8,8 +8,8 @@ Website for Shedfactory Limited: a digital creative agency and product studio. B
 | --- | --- |
 | `/` | Home — hero, products, services, startup offer, process, work, testimonials, FAQ |
 | `/about` | Story, values, products, testimonials |
-| `/products` | Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios overview |
-| `/products/[slug]` | Individual product pages (`shed`, `diner`, `glee`, `found`, `haulage`, `74-tribe`) |
+| `/products` | Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios, CareShed overview |
+| `/products/[slug]` | Individual product pages (`shed`, `diner`, `glee`, `found`, `haulage`, `74-tribe`, `careshed`) |
 | `/services` and `/services/[slug]` | Brand strategy, web & app development, UI/UX, digital marketing, content |
 | `/startups` | Venture building for founders and companies, with an idea-submission form |
 | `/work` | Portfolio |
@@ -35,7 +35,7 @@ Set `cover:` to a 1200×630 photo (e.g. one you add under `public/assets/images/
 
 Every page has its own Open Graph and Twitter tags (title, description, URL, image) via `pageMeta()` in `src/lib/seo.ts`. Share images are real photos, 1200×630, in `public/og/`:
 
-- Products use each product's own share artwork (Diner, Glee, Haulage, 74 Tribe) or a photo (Shed, Found) — sources in `scripts/og-sources/`
+- Products use each product's own share artwork (Diner, Glee, Haulage, 74 Tribe) a photo (Shed, Found), or the product's logo on a phone photo (CareShed) — sources in `scripts/og-sources/`
 - Site and service pages use the site's photos with a small Shedfactory logo
 
 To change one, swap the source photo and run `python3 scripts/make-og.py` (needs Pillow), or simply replace the file in `public/og/` with your own 1200×630 JPG.

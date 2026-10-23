@@ -1,6 +1,6 @@
 ---
 title: Why a creative agency builds its own products
-description: Shed, Diner, Glee, Found, Haulage and 74 Tribe aren't side projects. They're how we stay honest about what it takes to launch something real.
+description: Shed, Diner, Glee, Found, Haulage, 74 Tribe and CareShed aren't side projects. They're how we stay honest about what it takes to launch something real.
 date: 2026-10-20
 author: Shedfactory Team
 tags: [Products, Studio]
@@ -9,7 +9,7 @@ cover: /og/products.jpg
 
 Most agencies talk about building products. We decided to actually run some.
 
-Today Shedfactory designs, engineers and operates six platforms of its own: **[Shed](/products/shed)** for local sellers and shoppers, **[Diner](/products/diner)** for restaurants and venues, **[Glee](/products/glee)** for beauty bookings, **[Found](/products/found)** for property, **[Haulage](/products/haulage)** for moving goods across Nigeria, and **[74 Tribe Studios](/products/74-tribe)** for shows and studio hire.
+Today Shedfactory designs, engineers and operates seven platforms of its own: **[Shed](/products/shed)** for local sellers and shoppers, **[Diner](/products/diner)** for restaurants and venues, **[Glee](/products/glee)** for beauty bookings, **[Found](/products/found)** for property, **[Haulage](/products/haulage)** for moving goods across Nigeria, **[74 Tribe Studios](/products/74-tribe)** for shows and studio hire, and **[CareShed](/products/careshed)** for UK care providers.
 
 Here's why we think that makes us a better partner for anyone with an idea.
 
@@ -21,7 +21,7 @@ Running our own platforms means we've faced those questions ourselves. That expe
 
 ## Two-sided platforms are hard. We've built six.
 
-Every one of our products serves two groups at once: shoppers and sellers, diners and venues, clients and stylists, buyers and realtors, shippers and operators, viewers and creators. Each side only joins if the other is already there.
+Six of our products serve two groups at once: shoppers and sellers, diners and venues, clients and stylists, buyers and realtors, shippers and operators, viewers and creators. Each side only joins if the other is already there.
 
 That chicken-and-egg problem shapes everything — onboarding, pricing, what launches first and what waits. If your idea is a marketplace, a booking platform or a directory, it's a problem we know well.
 

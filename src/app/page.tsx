@@ -75,7 +75,7 @@ export default function Home() {
             <span className="eyebrow">Our products</span>
             <h2 className="h-section">We don’t just build for others. We build our own.</h2>
             <p className="lead">
-              Six platforms, designed, engineered and operated in-house — for local commerce, places to eat, beauty, property, logistics and media.
+              Seven platforms, designed, engineered and operated in-house — for local commerce, places to eat, beauty, property, logistics, media and care.
             </p>
           </div>
           <ProductCards />

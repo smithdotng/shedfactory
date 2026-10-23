@@ -65,6 +65,55 @@ def collage(paths, cols, rows, gap=8, focus=(0.5, 0.0)):
     return out
 
 
+def careshed_phone():
+    """CareShed: its logo on the phone photo, as a simple app screen."""
+    photo = Image.open(IMG / 'services/ui-ux.jpg').convert('RGB')
+    k = 560 / 520  # phone body is ~520px tall in the source
+    photo = photo.resize((round(photo.width * k), round(photo.height * k)), Image.LANCZOS)
+    px = 820 - round(304 * k)  # phone centre x in source ~304
+    py = (H - round(500 * k)) // 2 - round(240 * k) + 6
+    # background: the photo's own edge colour, then the photo blended in with a feathered left edge
+    edge = photo.crop((0, 0, 40, photo.height)).resize((1, 1), Image.LANCZOS).getpixel((0, 0))
+    canvas = Image.new('RGB', (W, H), edge)
+    layer = Image.new('RGB', (W, H), edge)
+    layer.paste(photo, (px, py))
+    mask = Image.new('L', (W, H), 0)
+    md = ImageDraw.Draw(mask)
+    for x in range(W):
+        right = px + photo.width
+        a = 0 if x < px or x >= right else min(255, int(255 * (x - px) / 220), int(255 * (right - x) / 60))
+        md.line([(x, 0), (x, H)], fill=a)
+    canvas = Image.composite(layer, canvas, mask)
+    out = canvas.convert('RGBA')
+    d = ImageDraw.Draw(out)
+    # screen content (inside the white screen: x 190-416, y 275-745 in source)
+    sx0, sy0 = px + round(196 * k), py + round(282 * k)
+    sw = round(214 * k)
+    logo = Image.open(SRC / 'careshed-logo.png').convert('RGBA').crop((28, 28, 269, 80))
+    lw = sw - 40
+    lg = logo.resize((lw, round(lw * logo.height / logo.width)), Image.LANCZOS)
+    out.alpha_composite(lg, (sx0 + 20, sy0 + 26))
+    y = sy0 + 26 + lg.height + 30
+    accents = [(240, 144, 96), (122, 120, 200), (240, 144, 96), (122, 120, 200)]
+    for i, c in enumerate(accents):
+        d.rounded_rectangle((sx0 + 14, y, sx0 + sw - 14, y + 70), radius=14, fill=(246, 244, 250))
+        d.ellipse((sx0 + 28, y + 19, sx0 + 60, y + 51), fill=c)
+        d.rounded_rectangle((sx0 + 74, y + 20, sx0 + sw - 70, y + 32), radius=6, fill=(200, 198, 214))
+        d.rounded_rectangle((sx0 + 74, y + 42, sx0 + sw - 110, y + 52), radius=5, fill=(222, 220, 232))
+        y += 84
+    # left: logo + strapline
+    big = logo.resize((400, round(400 * logo.height / logo.width)), Image.LANCZOS)
+    out.alpha_composite(big, (70, 225))
+    from PIL import ImageFont
+    try:
+        fnt = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 26)
+    except OSError:
+        fnt = ImageFont.load_default()
+    d.text((74, 330), 'Care management software', font=fnt, fill=(60, 58, 48))
+    d.text((74, 366), 'for UK care providers', font=fnt, fill=(60, 58, 48))
+    return out.convert('RGB')
+
+
 def save(img, name):
     img.convert('RGB').save(OUT / f'{name}.jpg', quality=86, optimize=True, progressive=True)
     print('wrote', f'public/og/{name}.jpg')
@@ -94,7 +143,8 @@ def main():
         save(cover(Image.open(SRC / f)), f'product-{slug}')
     save(badge(cover(Image.open(SRC / 'found.jpg'), focus=(0.5, 0.55))), 'product-found')
     save(badge(cover(Image.open(bg / 'main-slider-1-1-b.jpg'), focus=(0.55, 0.5))), 'product-shed')
-    save(collage([OUT / f'product-{s}.jpg' for s in ['shed', 'diner', 'glee', 'found', 'haulage', '74-tribe']], 3, 2, focus=(0.0, 0.5)), 'products')
+    save(careshed_phone(), 'product-careshed')
+    save(collage([OUT / f'product-{s}.jpg' for s in ['shed', 'diner', 'glee', 'found', 'haulage', 'careshed']], 3, 2, focus=(0.0, 0.5)), 'products')
 
 
 if __name__ == '__main__':
