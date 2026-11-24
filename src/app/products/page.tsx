@@ -7,7 +7,7 @@ import { ProductCards } from '@/components/Sections';
 
 export const metadata = pageMeta({
   title: 'Our Products',
-  description: 'Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios and CareShed — platforms designed, built and run by Shedfactory.',
+  description: 'Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios, CareShed and EduInsight — platforms designed, built and run by Shedfactory.',
   path: '/products',
   image: '/og/products.jpg',
 });
@@ -38,7 +38,7 @@ export default function Products() {
           </div>
         </div>
       </section>
-      <CtaBand title="Want to list your business on one of our platforms?" text="Sellers, restaurants, beauty professionals, realtors, logistics operators, creators and care providers can join our platforms today — or talk to us about a partnership." label="Talk to us" />
+      <CtaBand title="Want to list your business on one of our platforms?" text="Sellers, restaurants, beauty professionals, realtors, logistics operators, creators, care providers and schools can join our platforms today — or talk to us about a partnership." label="Talk to us" />
     </>
   );
 }

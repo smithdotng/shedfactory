@@ -5,7 +5,7 @@ export const site = {
   legalName: 'Shedfactory Limited',
   tagline: 'Bringing dreams to digital life',
   description:
-    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios and CareShed — and help founders and companies turn ideas into brands, websites and products.',
+    'Shedfactory is a digital creative agency and product studio. We build our own platforms — Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios, CareShed and EduInsight — and help founders and companies turn ideas into brands, websites and products.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://shedfactory.co',
   email: 'hello@shedfactory.co',
   phone: '+44 7526 801286',
@@ -32,7 +32,7 @@ export const stats = [
   { value: '10', label: 'Years of excellence' },
   { value: '100+', label: 'Dreams brought to life' },
   { value: '25+', label: 'Industries served' },
-  { value: '7', label: 'Platforms we own and run' },
+  { value: '8', label: 'Platforms we own and run' },
 ];
 
 export type Product = {
@@ -47,6 +47,7 @@ export type Product = {
   forUsers: { title: string; points: string[] };
   forBusiness: { title: string; points: string[] };
   cities?: string;
+  video?: string; // slug of an entry in `videos`
 };
 
 export const products: Product[] = [
@@ -84,27 +85,28 @@ export const products: Product[] = [
     name: 'Diner',
     domain: 'diner.ng',
     url: 'https://diner.ng',
-    tagline: "Nigeria's fun spots, one table away.",
-    category: 'Restaurants, lounges & venues',
+    tagline: 'Nigeria’s finest tables, reserved for you.',
+    category: 'Restaurants, lounges & hotel dining',
     summary:
-      'A directory for restaurants, hotels, lounges, cafés and event hotspots across Nigeria — with live digital menus, QR codes at the table, reviews and reservations.',
+      'A directory and booking platform for restaurants, lounges, hotel dining, cafés and event venues — live digital menus with table QR codes, online reservations and verified reviews, with no app to download.',
     accent: '#ff6b4a',
+    video: 'diner-promo',
     forUsers: {
       title: 'For guests',
       points: [
-        'Browse venues by type and city, with photos and ratings',
-        'See menus and prices before you go',
-        'Scan the table QR code for the full menu',
-        'Rate your visit and book a table at participating venues',
+        'Browse restaurants, lounges, hotel dining, cafés and event venues',
+        'Preview the full menu with prices before you go, or scan the QR code at your table',
+        'Reserve a table online and get an instant booking confirmation',
+        'Read verified guest reviews, and rate food, service and ambience',
       ],
     },
     forBusiness: {
-      title: 'For venue owners',
+      title: 'For venues',
       points: [
-        'A public listing with photos, hours, location and contacts',
-        'A digital menu with its own QR code — update specials or sold-out items anytime',
-        'Guest ratings and feedback, with public replies',
-        'Table management, online reservations and per-table QR codes',
+        'A curated listing with photos, your story, opening hours and location',
+        'Update prices, add specials or mark dishes unavailable in seconds — nothing to reprint',
+        'Answer verified reviews personally',
+        'A reservations dashboard with floor sections, seating, live table status and per-table QR codes',
       ],
     },
   },
@@ -146,24 +148,24 @@ export const products: Product[] = [
     tagline: 'Find the right property in Nigeria, without the runaround.',
     category: 'Property marketplace',
     summary:
-      'A property marketplace for homes, land, shortlets, shops and business complexes across all 36 states and the FCT — every listing reviewed, every realtor verified.',
+      'A property marketplace for homes, land, shortlets, shops and business complexes across all 36 states and the FCT — every listing reviewed, every realtor verified — plus Found Apartments for verified shortlet stays.',
     accent: '#3ccf91',
     forUsers: {
-      title: 'For buyers & renters',
+      title: 'For buyers, renters & guests',
       points: [
         'Search by state, property type and buy, rent, shortlet or lease',
-        'Listings reviewed before they go live, with verified realtors',
-        'Agency fees capped and disclosed upfront',
-        'Deals facilitated so buyers and sellers are both protected',
+        'Every listing reviewed before it goes live, with verified realtors',
+        'Agency fees capped at 10% and disclosed upfront, with deals facilitated so both sides are protected',
+        'Book verified shortlet apartments through Found Apartments, and browse premium homes in Found Prestige',
       ],
     },
     forBusiness: {
-      title: 'For realtors & developers',
+      title: 'For realtors, hosts & developers',
       points: [
-        'List properties free, with one inbox for every enquiry',
-        'Track how your listings perform',
-        'Referral links and QR codes that earn agents commission',
-        'Projects and Found Fractional for developers and investors',
+        'List properties free, with one inbox for every enquiry and performance tracking',
+        'A “Verified by Found” badge for verified realtors',
+        'Tracked referral links and QR codes that earn agents most of the agency fee',
+        'Shortlet hosts can list on Found Apartments; developers can showcase projects and estates',
       ],
     },
   },
@@ -250,6 +252,73 @@ export const products: Product[] = [
         'Plans from £99 a month, with a 14-day free trial and no card needed',
       ],
     },
+  },
+  {
+    slug: 'eduinsight',
+    name: 'EduInsight',
+    domain: 'eduinsight.co',
+    url: 'https://eduinsight.co',
+    tagline: 'See every student’s strengths before the report card does.',
+    category: 'School records & learning analytics',
+    summary:
+      'Student records and learning analytics for Nigerian primary and secondary schools. EduInsight turns the CA and exam scores schools already record into topic-by-topic insight and written feedback for every student, class and teacher.',
+    accent: '#0b6e4f',
+    video: 'eduinsight-promo',
+    forUsers: {
+      title: 'For parents & students',
+      points: [
+        'Report cards with grade, class average, position, attendance and the teacher’s comment',
+        'Feedback written for each child: strengths, focus areas and study recommendations',
+        'An SS1 stream suggestion built from the student’s record',
+        'Parents see only their own children, and sign in with email or phone number',
+      ],
+    },
+    forBusiness: {
+      title: 'For schools & teachers',
+      points: [
+        'Tag every test question to a topic and skill, then enter marks in a fast spreadsheet-style grid',
+        'Proficiency by knowledge domain, class topic gaps, item analysis and value-added progress',
+        'Built on the NERDC national curriculum, with free schemes of work for Primary, JSS and SSS',
+        'Register your school yourself and import students from a spreadsheet — free to start',
+      ],
+    },
+  },
+];
+
+export type Video = {
+  slug: string;
+  title: string;
+  description: string;
+  src: string;
+  poster: string;
+  duration: string; // ISO 8601, for search engines
+  durationLabel: string;
+  uploadDate: string;
+  product?: string; // product slug
+};
+
+export const videos: Video[] = [
+  {
+    slug: 'diner-promo',
+    title: 'Diner.ng — Nigeria’s finest tables, reserved for you',
+    description: 'A quick look at Diner.ng for venues: an elegant menu that’s always current, reservations handled online, and verified reviews you can answer personally.',
+    src: '/videos/diner-promo.mp4',
+    poster: '/videos/diner-promo-poster.jpg',
+    duration: 'PT26S',
+    durationLabel: '0:26',
+    uploadDate: '2026-11-24',
+    product: 'diner',
+  },
+  {
+    slug: 'eduinsight-promo',
+    title: 'EduInsight — know every student, help every teacher',
+    description: 'How EduInsight turns the scores schools already record into proficiency by domain, feedback for each child and evidence for better teaching — built on the NERDC curriculum.',
+    src: '/videos/eduinsight-promo.mp4',
+    poster: '/videos/eduinsight-promo-poster.jpg',
+    duration: 'PT52S',
+    durationLabel: '0:52',
+    uploadDate: '2026-11-24',
+    product: 'eduinsight',
   },
 ];
 
@@ -449,7 +518,7 @@ export const processSteps = [
 export const studio = {
   headline: 'Got an idea? Let’s bring it to life.',
   intro:
-    'We don’t just build for clients — we build our own products. Shed, Diner, Glee, Found, Haulage, 74 Tribe and CareShed started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
+    'We don’t just build for clients — we build our own products. Shed, Diner, Glee, Found, Haulage, 74 Tribe, CareShed and EduInsight started as ideas on a whiteboard. Today they’re live platforms with real users and real businesses on them. We bring that same founder-side experience to startups and companies with an idea worth building.',
   stages: [
     {
       title: 'Shape the idea',

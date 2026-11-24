@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight, Check, ArrowRight } from 'lucide-react';
-import { products } from '@/lib/content';
+import { products, videos } from '@/lib/content';
+import VideoCard from '@/components/VideoCard';
 import CtaBand from '@/components/CtaBand';
 import { pageMeta } from '@/lib/seo';
 
@@ -22,6 +23,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const p = products.find((x) => x.slug === slug);
   if (!p) notFound();
   const others = products.filter((x) => x.slug !== p.slug);
+  const video = videos.find((v) => v.slug === p.video);
 
   return (
     <>
@@ -67,7 +69,24 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="section">
+      {video && (
+        <section className="section">
+          <div className="wrap product-video">
+            <VideoCard video={video} showMeta={false} />
+            <div>
+              <span className="eyebrow">Watch · {video.durationLabel}</span>
+              <h2 className="h-section">{p.name} in {Number(video.durationLabel.split(':')[1]) + 60 * Number(video.durationLabel.split(':')[0])} seconds</h2>
+              <p className="lead">{video.description}</p>
+              <div className="btn-row" style={{ marginTop: 24 }}>
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="btn btn--ghost">Visit {p.domain} <ArrowUpRight size={18} /></a>
+                <Link href="/videos" className="btn btn--ghost">All videos</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className={video ? 'section section--raised' : 'section'}>
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">More from Shedfactory</span>

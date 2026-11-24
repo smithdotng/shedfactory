@@ -114,6 +114,23 @@ def careshed_phone():
     return out.convert('RGB')
 
 
+def filmstrip(frames, bg=None, gap=26):
+    """Portrait video frames side by side, like screens from the promo, on the video's own background colour."""
+    ims = [Image.open(p).convert('RGB') for p in frames]
+    if bg is None:
+        bg = ims[0].crop((0, 0, 40, 40)).resize((1, 1), Image.LANCZOS).getpixel((0, 0))
+    out = Image.new('RGB', (W, H), bg)
+    ratio = ims[0].width / ims[0].height
+    h = min(H - 2 * 34, round((W - 2 * 40 - (len(ims) - 1) * gap) / len(ims) / ratio))
+    w = round(h * ratio)
+    total = len(ims) * w + (len(ims) - 1) * gap
+    x, y = (W - total) // 2, (H - h) // 2
+    for im in ims:
+        out.paste(im.resize((w, h), Image.LANCZOS), (x, y))
+        x += w + gap
+    return out
+
+
 def save(img, name):
     img.convert('RGB').save(OUT / f'{name}.jpg', quality=86, optimize=True, progressive=True)
     print('wrote', f'public/og/{name}.jpg')
@@ -130,6 +147,7 @@ def main():
     save(badge(cover(Image.open(bg / 'main-slider-1-1.jpg'), focus=(0.6, 0.5))), 'services')
     save(badge(cover(Image.open(bg / 'page-header-bg-contact.jpg'), focus=(0.6, 0.4))), 'contact')
     save(split(Image.open(IMG / 'services/web-development.jpg')), 'blog')
+    save(filmstrip([ROOT / 'public/videos/diner-promo-poster.jpg', SRC / 'frames/diner-12.jpg', SRC / 'frames/edu-30.jpg', ROOT / 'public/videos/eduinsight-promo-poster.jpg'], bg=INK), 'videos')
     save(collage([IMG / 'portfolio/fullmoon.png', IMG / 'portfolio/motown.jpg',
                   IMG / 'portfolio/radiant.jpg', IMG / 'portfolio/serinity.jpg'], 2, 2), 'work')
 
@@ -139,12 +157,15 @@ def main():
         save(split(Image.open(IMG / f'services/{f}.jpg')), f'service-{slug}')
 
     # Products — the product's own share artwork where it exists, otherwise a photo
-    for slug, f in [('diner', 'diner.jpg'), ('glee', 'glee.jpg'), ('haulage', 'haulage.png'), ('74-tribe', '74-tribe.png')]:
+    fr = SRC / 'frames'
+    save(filmstrip([fr / f'diner-{t}.jpg' for t in (8, 12, 16)]), 'product-diner')
+    save(filmstrip([fr / f'edu-{t}.jpg' for t in (12, 30, 49)]), 'product-eduinsight')
+    for slug, f in [('glee', 'glee.jpg'), ('haulage', 'haulage.png'), ('74-tribe', '74-tribe.png')]:
         save(cover(Image.open(SRC / f)), f'product-{slug}')
     save(badge(cover(Image.open(SRC / 'found.jpg'), focus=(0.5, 0.55))), 'product-found')
     save(badge(cover(Image.open(bg / 'main-slider-1-1-b.jpg'), focus=(0.55, 0.5))), 'product-shed')
     save(careshed_phone(), 'product-careshed')
-    save(collage([OUT / f'product-{s}.jpg' for s in ['shed', 'diner', 'glee', 'found', 'haulage', 'careshed']], 3, 2, focus=(0.0, 0.5)), 'products')
+    save(collage([OUT / f'product-{s}.jpg' for s in ['shed', 'diner', 'found', 'eduinsight', 'haulage', 'careshed']], 3, 2, focus=(0.5, 0.5)), 'products')
 
 
 if __name__ == '__main__':

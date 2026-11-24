@@ -8,12 +8,13 @@ Website for Shedfactory Limited: a digital creative agency and product studio. B
 | --- | --- |
 | `/` | Home — hero, products, services, startup offer, process, work, testimonials, FAQ |
 | `/about` | Story, values, products, testimonials |
-| `/products` | Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios, CareShed overview |
-| `/products/[slug]` | Individual product pages (`shed`, `diner`, `glee`, `found`, `haulage`, `74-tribe`, `careshed`) |
+| `/products` | Shed.ng, Diner.ng, Glee.ng, Found.ng, Haulage.ng, 74 Tribe Studios, CareShed, EduInsight overview |
+| `/products/[slug]` | Individual product pages (`shed`, `diner`, `glee`, `found`, `haulage`, `74-tribe`, `careshed`, `eduinsight`) |
 | `/services` and `/services/[slug]` | Brand strategy, web & app development, UI/UX, digital marketing, content |
 | `/startups` | Venture building for founders and companies, with an idea-submission form |
 | `/work` | Portfolio |
 | `/contact` | Contact form, offices, WhatsApp, email |
+| `/videos` | Product videos (also on the home page and each product's page) |
 | `/blog` and `/blog/[slug]` | Blog (posts are markdown files in `content/blog/`), RSS at `/blog/rss.xml` |
 | `/admin` | Messages and subscribers (basic auth) |
 
@@ -31,11 +32,19 @@ Almost all copy — products, services, portfolio, testimonials, FAQs, stats, co
 
 Set `cover:` to a 1200×630 photo (e.g. one you add under `public/assets/images/blog/`); it's used as the post's cover and its share image. Without one, the default blog photo is used. Posts dated in the future stay hidden until that day (checked hourly). Files starting with `_` are never published.
 
+## Adding a video
+
+1. Put the MP4 in `public/videos/` (H.264/AAC; run `ffmpeg -i in.mp4 -c copy -movflags +faststart out.mp4` so it starts playing quickly) and a poster JPG beside it.
+2. Add an entry to `videos` in `src/lib/content.ts` (title, description, file paths, duration, and the product slug if it's about a product).
+3. To show it on a product's page, set `video:` on that product to the video's slug.
+
+Keep files small (a few MB). For long or large videos, host on YouTube or a CDN and point `src` there instead.
+
 ## Share previews (Open Graph)
 
 Every page has its own Open Graph and Twitter tags (title, description, URL, image) via `pageMeta()` in `src/lib/seo.ts`. Share images are real photos, 1200×630, in `public/og/`:
 
-- Products use each product's own share artwork (Diner, Glee, Haulage, 74 Tribe) a photo (Shed, Found), or the product's logo on a phone photo (CareShed) — sources in `scripts/og-sources/`
+- Products use each product's own share artwork (Glee, Haulage, 74 Tribe), frames from its promo video (Diner, EduInsight), a photo (Shed, Found), or the product's logo on a phone photo (CareShed) — sources in `scripts/og-sources/`
 - Site and service pages use the site's photos with a small Shedfactory logo
 
 To change one, swap the source photo and run `python3 scripts/make-og.py` (needs Pillow), or simply replace the file in `public/og/` with your own 1200×630 JPG.

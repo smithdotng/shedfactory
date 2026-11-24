@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
-import { products, studio } from '@/lib/content';
+import { products, studio, videos } from '@/lib/content';
+import VideoCard from '@/components/VideoCard';
 import { Stats, ProductCards, ServiceGrid, WorkGrid, Testimonials, Faq, ProcessSteps } from '@/components/Sections';
 import CtaBand from '@/components/CtaBand';
 import { getPosts, coverFor, formatDate } from '@/lib/blog';
@@ -75,7 +76,7 @@ export default function Home() {
             <span className="eyebrow">Our products</span>
             <h2 className="h-section">We don’t just build for others. We build our own.</h2>
             <p className="lead">
-              Seven platforms, designed, engineered and operated in-house — for local commerce, places to eat, beauty, property, logistics, media and care.
+              Eight platforms, designed, engineered and operated in-house — for local commerce, places to eat, beauty, property, logistics, media, care and education.
             </p>
           </div>
           <ProductCards />
@@ -147,6 +148,25 @@ export default function Home() {
           <Testimonials />
         </div>
       </section>
+
+      {videos.length > 0 && (
+        <section className="section section--raised">
+          <div className="wrap">
+            <div className="section-head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', maxWidth: 'none', gap: 20, flexWrap: 'wrap' }}>
+              <div>
+                <span className="eyebrow">Watch</span>
+                <h2 className="h-section" style={{ margin: 0 }}>Our products, in motion</h2>
+              </div>
+              <Link href="/videos" className="btn btn--ghost">All videos <ArrowRight size={18} /></Link>
+            </div>
+            <div className="videos">
+              {videos.slice(0, 3).map((v) => (
+                <VideoCard key={v.slug} video={v} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {latest.length > 0 && (
         <section className="section">

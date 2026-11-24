@@ -1,6 +1,6 @@
 ---
 title: Why a creative agency builds its own products
-description: Shed, Diner, Glee, Found, Haulage, 74 Tribe and CareShed aren't side projects. They're how we stay honest about what it takes to launch something real.
+description: Shed, Diner, Glee, Found, Haulage, 74 Tribe, CareShed and EduInsight aren't side projects. They're how we stay honest about what it takes to launch something real.
 date: 2026-10-20
 author: Shedfactory Team
 tags: [Products, Studio]
@@ -9,7 +9,7 @@ cover: /og/products.jpg
 
 Most agencies talk about building products. We decided to actually run some.
 
-Today Shedfactory designs, engineers and operates seven platforms of its own: **[Shed](/products/shed)** for local sellers and shoppers, **[Diner](/products/diner)** for restaurants and venues, **[Glee](/products/glee)** for beauty bookings, **[Found](/products/found)** for property, **[Haulage](/products/haulage)** for moving goods across Nigeria, **[74 Tribe Studios](/products/74-tribe)** for shows and studio hire, and **[CareShed](/products/careshed)** for UK care providers.
+Today Shedfactory designs, engineers and operates eight platforms of its own: **[Shed](/products/shed)** for local sellers and shoppers, **[Diner](/products/diner)** for restaurants and venues, **[Glee](/products/glee)** for beauty bookings, **[Found](/products/found)** for property, **[Haulage](/products/haulage)** for moving goods across Nigeria, **[74 Tribe Studios](/products/74-tribe)** for shows and studio hire, **[CareShed](/products/careshed)** for UK care providers, and **[EduInsight](/products/eduinsight)** for Nigerian schools.
 
 Here's why we think that makes us a better partner for anyone with an idea.
 
